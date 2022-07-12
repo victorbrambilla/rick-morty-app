@@ -6,6 +6,7 @@ import {
   GetCharacterByIdRepository,
   GetCharactersRepository,
 } from '../../data/protocols'
+import { FilterCharactersByGenderRepository } from '../../data/protocols/filter-characters-by-gender-repository'
 
 export class CharactersRepository
   implements
@@ -13,7 +14,8 @@ export class CharactersRepository
     GetCharacterByIdRepository,
     FilterCharactersByNameRepository,
     FilterCharactersBySpeciesRepository,
-    FilterCharactersByStatusRepository
+    FilterCharactersByStatusRepository,
+    FilterCharactersByGenderRepository
 {
   constructor(private readonly api: Axios) {}
   async getCharacters(
@@ -59,6 +61,17 @@ export class CharactersRepository
   ): Promise<FilterCharactersByStatusRepository.Result> {
     try {
       const response = await this.api.get(`/character?page=${params.page}&status=${params.status}`)
+      return response.data
+    } catch (error) {
+      return null
+    }
+  }
+
+  async filterByGender(
+    params: FilterCharactersByGenderRepository.Params,
+  ): Promise<FilterCharactersByGenderRepository.Result> {
+    try {
+      const response = await this.api.get(`/character?page=${params.page}&gender=${params.gender}`)
       return response.data
     } catch (error) {
       return null
