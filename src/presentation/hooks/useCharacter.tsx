@@ -2,6 +2,7 @@ import React, { ChangeEvent, useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { CharacterModel } from '../../domain/models'
 import {
+  makeRemoteFilterCharactersByGender,
   makeRemoteFilterCharactersByName,
   makeRemoteFilterCharactersBySpecies,
   makeRemoteFilterCharactersByStatus,
@@ -82,6 +83,19 @@ export const useCharacter = () => {
             setLoading(false)
           })
 
+        break
+
+      case 'genero':
+        setLoading(true)
+        makeRemoteFilterCharactersByGender()
+          .perform({ page, gender: filterValue })
+          .then((data) => {
+            if (data) {
+              setData(data.results)
+              setCount(data.info.pages)
+            }
+            setLoading(false)
+          })
         break
     }
   }, [debouncedSearchTerm, filterType, page])

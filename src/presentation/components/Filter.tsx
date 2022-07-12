@@ -13,6 +13,7 @@ import SearchIcon from '@mui/icons-material/Search'
 import styles from './Filter.module.scss'
 import { status } from '../enums/status'
 import { species } from '../enums/species'
+import { genders } from '../enums/gender'
 
 interface IProps {
   filterType: string
@@ -49,6 +50,7 @@ export const FilterComponent = ({
           <MenuItem value={'Nenhum'}>Nenhum</MenuItem>
           <MenuItem value={'status'}>Status</MenuItem>
           <MenuItem value={'especie'}>Espécie</MenuItem>
+          <MenuItem value={'genero'}>Gênero</MenuItem>
           <MenuItem value={'nome'}>Nome</MenuItem>
         </Select>
       </FormControl>
@@ -103,6 +105,24 @@ export const FilterComponent = ({
                   </InputAdornment>
                 }
               />
+            </FormControl>
+          )}
+
+          {filterType === 'genero' && (
+            <FormControl variant='standard' fullWidth>
+              <InputLabel>Filtrar por gênero</InputLabel>
+              <Select
+                value={filterValue}
+                onChange={(e) => {
+                  setFilterValue(e.target.value)
+                }}
+              >
+                {genders.map((genders) => (
+                  <MenuItem key={genders.value} value={genders.value}>
+                    {genders.label}
+                  </MenuItem>
+                ))}
+              </Select>
             </FormControl>
           )}
         </>
