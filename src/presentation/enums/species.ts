@@ -4,7 +4,7 @@ export const species = [
   { label: 'Humanoid', value: 'Humanoid' },
   { label: 'Poopybutthole', value: 'Poopybutthole' },
   { label: 'Mythological', value: 'Mythological' },
-  { label: 'Unknown', value: 'Unknown' },
+  { label: 'Unknown', value: 'unknown' },
   { label: 'Animal', value: 'Animal' },
   { label: 'Disease', value: 'Disease' },
   { label: 'Robot', value: 'Robot' },
