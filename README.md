@@ -7,6 +7,7 @@
 - [x] axios - https://axios-http.com/ptbr/
 - [x] Sass - https://sass-lang.com/
 - [x] Clean architecture 
+- [x] Jest
 
 ## Instalando as dependencias
 
