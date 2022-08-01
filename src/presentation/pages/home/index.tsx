@@ -31,7 +31,7 @@ export const Home = () => {
           setFilterValue={setFilterValue}
         />
         {loading && <LinearProgress />}
-        <Box className={styles.characters}>
+        <Box className={styles.characters} data-testid='characters'>
           {data?.map((char: CharacterModel) => (
             <CharCard key={char.id} char={char} />
           ))}
