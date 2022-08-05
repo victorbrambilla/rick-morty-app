@@ -117,5 +117,6 @@ export const useCharacter = () => {
     page,
     loading,
     handleChangePage,
+    setSearchParams,
   }
 }
