@@ -100,7 +100,7 @@ export const useCharacter = () => {
     }
   }, [debouncedSearchTerm, filterType, page])
 
-  const handleChangePage = (event: ChangeEvent<unknown>, value: number) => {
+  const handleChangePage = (value: number) => {
     if (filterType !== 'Nenhum' && !filterValue) {
       return
     }
