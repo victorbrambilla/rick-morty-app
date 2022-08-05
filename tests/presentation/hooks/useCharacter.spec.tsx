@@ -1,10 +1,10 @@
 import { BrowserRouter } from 'react-router-dom'
 import { useCharacter } from '../../../src/presentation/hooks/useCharacter'
-import { act, cleanup, renderHook } from '@testing-library/react-hooks'
+import { act, renderHook } from '@testing-library/react-hooks'
 
 describe('useCharacter', () => {
   afterEach(async () => {
-    const { result, waitForValueToChange } = renderHook(() => useCharacter(), {
+    const { result } = renderHook(() => useCharacter(), {
       wrapper: BrowserRouter,
     })
 
